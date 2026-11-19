@@ -1,17 +1,19 @@
-import { Section } from "@/components/ui/container";
-import { Eyebrow } from "@/components/ui/eyebrow";
-import { siteConfig } from "@/lib/site";
+import { DepartmentsSection } from "@/components/home/departments-section";
+import { DoctorsSection } from "@/components/home/doctors-section";
+import { Hero } from "@/components/home/hero";
+import { HowItWorks } from "@/components/home/how-it-works";
+import { TrustSection } from "@/components/home/trust-section";
+import { VisitSection } from "@/components/home/visit-section";
 
 export default function HomePage() {
   return (
-    <Section>
-      <Eyebrow>{siteConfig.tagline}</Eyebrow>
-      <h1 className="mt-6 max-w-4xl text-h1">
-        Medical supplies, <span className="text-ink-subtle">delivered with care.</span>
-      </h1>
-      <p className="mt-6 max-w-copy text-lead text-ink-muted">
-        Our online store is under construction. Check back soon.
-      </p>
-    </Section>
+    <>
+      <Hero />
+      <DepartmentsSection />
+      <DoctorsSection />
+      <HowItWorks />
+      <TrustSection />
+      <VisitSection />
+    </>
   );
 }

@@ -35,6 +35,10 @@
   --color-brand-800: #134f4f;
   --color-brand-900: #133f40;
 
+  /* Emergency (reserved for urgent-care messaging only) */
+  --color-alert: #b42318; /* fills with white text (6.6:1) */
+  --color-alert-soft: #fef3f2; /* tinted background behind alert text */
+
   /* Type scale: size / line-height / tracking / weight travel together */
   --text-eyebrow: 0.75rem;
   --text-eyebrow--line-height: 1;

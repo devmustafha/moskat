@@ -26,4 +26,6 @@ The code uses the Next.js App Router API, but runs on **vinext** (Cloudflare's b
 - When adding a token to `@theme`, also register it in the `extendTailwindMerge` config in `lib/utils.ts`; otherwise `cn()` silently drops classes it thinks conflict (e.g. `text-small` vs `text-white`).
 - A running dev server may not pick up Tailwind classes from newly created files. If styles are missing in dev but present in `npm run build`, `touch app/globals.css`.
 - Site branding (name, tagline, description) comes from `siteConfig` in `lib/site.ts`; don't hard-code it in components.
+- `lucide-react` is pinned to 0.577.0. In v1 every icon is a client component that reads a React context, which crashes server components in dev (`createContext is not a function`) and ships icon JS to the browser. Don't upgrade to v1.
+- Photos are Unsplash CDN URLs rendered with `components/ui/photo.tsx` (srcset via CDN params), not `next/image`. Sample content lives in `lib/data/` and contact details/hours in `siteConfig`; all are placeholders.
 - `cf`, `@cloudflare/vite-plugin` and `vite` are pinned to exact (pre-release) versions on purpose. Upgrade them deliberately and together, never to `latest`.
