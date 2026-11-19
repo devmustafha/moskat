@@ -22,5 +22,8 @@ The code uses the Next.js App Router API, but runs on **vinext** (Cloudflare's b
 ## Conventions
 
 - Tailwind CSS v4 is configured in CSS (`@theme` in `app/globals.css`). Don't create `tailwind.config.js`.
+- Style with the design tokens (`text-ink`, `text-h2`, `rounded-card`, `container-site`, …) and the primitives in `components/ui/`, not raw Tailwind colours, sizes or radii. `/styleguide` (dev only) shows them all.
+- When adding a token to `@theme`, also register it in the `extendTailwindMerge` config in `lib/utils.ts`; otherwise `cn()` silently drops classes it thinks conflict (e.g. `text-small` vs `text-white`).
+- A running dev server may not pick up Tailwind classes from newly created files. If styles are missing in dev but present in `npm run build`, `touch app/globals.css`.
 - Site branding (name, tagline, description) comes from `siteConfig` in `lib/site.ts`; don't hard-code it in components.
 - `cf`, `@cloudflare/vite-plugin` and `vite` are pinned to exact (pre-release) versions on purpose. Upgrade them deliberately and together, never to `latest`.
